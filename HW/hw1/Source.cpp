@@ -13,15 +13,16 @@
 
 
 int main() {
-	Coordinates a;
-	Coordinates b;
-	Coordinates c;
-
-	a = Coordinates(3, 6);
-	b = Coordinates(7, 1);
-	c = Coordinates(2, 0);
+	Coordinates<int, int> a;
+	Coordinates<int, int> b;
+	Coordinates<int, int> c;
+	
+	a = Coordinates<int, int>(3, 6.9);
+	b = Coordinates<int, int>(7, 1);
+	c = Coordinates<int, int>(2, 0);
 
 	a = b + c;
+	std::cout << a;
 	a.Swap();
 	std::cout << a;
 	a.Swap(b);
