@@ -25,3 +25,27 @@ void completion() {
 		else { (*_this).second = status::_private; }
 	}
 }
+
+std::string StatusEnumToStr(status s) {
+	return s == status::_public ? "public" : s == status::_protected ? "protected" : "private";
+}
+
+void print() {
+	std::cout << "==================================" << std::endl;
+	for (auto n : mainvec) {
+		std::cout << "Number: " << n.first << " | Status: " << StatusEnumToStr(n.second) << std::endl;
+	}
+	std::cout << "==================================" << std::endl;
+}
+
+void rebuildVec() {
+	auto rebuild = [](auto& _this) {
+		if (_this.second == status::_public) {
+			_this.first = 0;
+		}
+		else if (_this.second == status::_protected) {
+			_this.second = status::_private;
+		}
+	};
+	for (auto& _this : mainvec) { rebuild(_this); }
+}
